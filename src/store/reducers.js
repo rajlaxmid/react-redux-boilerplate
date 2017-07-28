@@ -1,6 +1,10 @@
 import {TEST_ME_REQUESTED} from './actions';
 import {GET_MYNAME} from './actions';
 import {GET_POST} from './actions';
+import {SET_USER} from './actions';
+
+
+//import { reducer as formReducer } from 'redux-form';
 
 import { combineReducers } from 'redux';
 
@@ -34,11 +38,24 @@ const postReducer = (state={}, action) => {
     }
 }
 
+const setUserReducer = (state={}, action) => {
+    switch(action.type){
+        
+        case SET_USER: 
+            return { msg: action.message}
+        default: 
+            return state;
+    }
+}
+
 
 const allReducers = combineReducers({
     testme: idReducer,
     getName:nameReducer,
-    getPost:postReducer
+    getPost:postReducer,
+    setUser:setUserReducer
+    
+
     
 });
 

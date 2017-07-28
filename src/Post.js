@@ -25,7 +25,7 @@ componentDidMount(){
       return (
         
       	<div>
-            <Menu />                
+            <Menu /> 
 			Post Page <br/>
             PostData: {this.props.postname}
             <br/>
