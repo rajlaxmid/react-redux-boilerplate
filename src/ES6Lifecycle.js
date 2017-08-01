@@ -20,14 +20,40 @@ class ES6Lifecycle extends React.Component {
 	componentDidMount(){
 		console.log('5. ES6Lifecycle >> componentDidMount called (called once AFTER component render)');			
 	}
+
+	increment(){
+		this.setState({count: this.state.count+1});
+	}
 	render() {
 		console.log('4. ES6Lifecycle >> render called  (called everyTime component update)')				
 
-		return (<div>
+		return (<div style={{width: '600px', border: '1px solid #cdcdcd', padding: '20px'}}>
 			<Menu />
-			<b>This is ES6Lifecycle component, Please check the console for the sequence of LIfeCycle Events {this.props.name}</b>
-		    <h3>Clear the console and REFRESH the page</h3>
+			<p><b>This is ES6Lifecycle component, Please check the console for the sequence of LIfeCycle Events {this.props.name}</b></p>
+		    <button onClick={this.increment.bind(this)}>increment Count: render when count == ODD_no</button>: {this.state.count}
+			<h3>Clear the console and REFRESH the page</h3>
 		</div>);
+	}
+
+	shouldComponentUpdate(nextProps, nextState){
+		//It is called whenever there is update in state/props
+		
+		//if count is ODD number, then it will return false >> hence component will not be rendered
+		console.log('shouldComponentUpdate called');
+		return nextState.count%2!=0? false: true;
+    	
+	}
+	
+	componentWillUpdate(nextProps, nextState){
+		// This is called just after shouldComponentUpdate(),
+		// We should strictly not use setState() here, because shouldComponentUpdate() trigger an update
+		console.log('componentWillUpdate called')
+	}
+	
+	componentDidUpdate(prevProps, prevState){
+		// componentDidUpdate is called after the render method (when component is updated after initial render)
+		//Similar to the componentDidMount, this method can be used to perform DOM operations after the data has been updated.
+		console.log('componentDidUpdate called')
 	}
 }
 
