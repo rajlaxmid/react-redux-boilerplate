@@ -16,6 +16,11 @@ import About from './src/About';
 import Home from './src/Home';
 import Post from './src/Post';
 
+//new files added >> to explain componentLifeCycle
+import ES5Lifecycle from './src/ES5Lifecycle'; //ES5 way of component 
+import ES6Lifecycle from './src/ES6Lifecycle'; //ES6 way of component
+
+
 import allReducers from './src/store/reducers';
 
 
@@ -33,10 +38,10 @@ ReactDOM.render((
         <Route path="login" component={Login} />
         <Route path="about" component={About} />
         <Route path="about" component={About} />
-        <Route path="post" component={Post} />
-        
-        
+        <Route path="post" component={Post} /> 
       </Route>
+      <Route path="es5lifecycle" component={ES5Lifecycle}/>
+      <Route path="es6lifecycle" component={ES6Lifecycle}/>
     </Router>
   </Provider>
 ), document.getElementById('app'));

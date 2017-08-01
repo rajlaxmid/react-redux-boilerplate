@@ -35,7 +35,7 @@ componentDidMount(){
 
       return (
       	<div>
-            <Menu />                
+            <Menu />             
 			Home Page {this.props.id}
             <button onClick={this.clickHandle.bind(this)}>call func</button><br/>
             Name: {this.props.name}
@@ -45,6 +45,8 @@ componentDidMount(){
       );
    }
 }
+
+
 
 
 //export default Home;
