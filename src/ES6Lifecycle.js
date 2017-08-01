@@ -26,6 +26,7 @@ class ES6Lifecycle extends React.Component {
 		return (<div>
 			<Menu />
 			<b>This is ES6Lifecycle component, Please check the console for the sequence of LIfeCycle Events {this.props.name}</b>
+		    <h3>Clear the console and REFRESH the page</h3>
 		</div>);
 	}
 }
